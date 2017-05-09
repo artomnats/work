@@ -2,19 +2,19 @@
 
 pass1=0
 fail1=0
-temp=`find /home/arto/work/Bash_script/ -name \*.log`
+temp=`find ./ -name \*.log`
 for i in $temp
 do
+	name_b=`basename $i .log`
+	name_d=`dirname $i` 
 	if [[ `grep -o pass $i` == "pass" ]]
 	then
 		let "pass1++"
-		file_name=`basename $i .log`
-		mv ${file_name}.log ${file_name}_pass.log
+		mv ${name_d}/${name_b}.log ${name_d}/${name_b}_pass.log
 		
 	elif [[ `grep -o fail $i` == "fail" ]]
 	then
-		file_name=`basename $i .log`
-		mv ${file_name}.log ${file_name}_fail.log
+		mv ${name_d}/${name_b}.log ${name_d}/${name_b}_fail.log
 		let "fail1++"
 	fi
 done
