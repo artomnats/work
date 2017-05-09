@@ -1,0 +1,17 @@
+12
+1
+11
+2
+3
+abc
+aaa
+aba
+21
+22
+25
+13
+17
+28
+hello aaa
+hello bbb
+worl
