@@ -5,9 +5,8 @@ rm -f output.txt
 #Is file exist
 if [ -e input.txt ]
 then
-    num_str=`cat ./input.txt`
 #Is file row numeric or char
-	for p in $num_str
+	while read p
 	do
 		re='^[0-9]+$'
 		#file row is numeric
@@ -17,10 +16,11 @@ then
 			((count_n++))
 		#file row is char
 		else
-			ar_char=$p" "$ar_char
+			ar_char=$p","$ar_char
 			((count_ch++))
+			echo $ar_char
 		fi
-	done
+	done < ./input.txt
 	#sort numeric rows
 	for i in $ar_num
 	do
@@ -49,7 +49,14 @@ then
 		done
 	done
 	#sort char rows
-	arr_char=(${ar_char// / })
+	#arr_char=(${ar_char//,/ })
+	i=0
+	for (( i=0; i < $count_ch; i++ ))
+	do
+		((j=$i+1))
+		arr_char[$i]=`echo $ar_char | awk -F, '{print $'$j' }'`
+	done
+	echo $arr_char
 	for (( i=0; i < $count_ch-1 ; i++ ))
 	do
 		for (( j=0; j < $count_ch-$i-1; j++ ))

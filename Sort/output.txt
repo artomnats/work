@@ -10,10 +10,8 @@
 28
 3
 aaa
-aaa
 aba
 abc
-bbb
-hello
-hello
+hello aaa
+hello bbb
 worl
