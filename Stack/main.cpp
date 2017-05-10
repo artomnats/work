@@ -16,6 +16,6 @@ int main()
 	cout << "Top of stack is: " << stack1.top() << endl;
 	cout << "Is stack empty?: " << " " << ( (stack1.empty() == 1)? "true":"false") << endl;
 	cout << "Stack size is: " << stack1.size() << endl;
-	cout << "Stack capacity is: " << stack1.capacity() << endl;
+//	cout << "Stack capacity is: " << stack1.capacity() << endl;
 	return 0;
 }
