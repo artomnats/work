@@ -13,6 +13,7 @@ public:
 	void pop();
 	void push( int );
 	int size();
+	int capacity();
 	bool empty() const;
 	void printStack() const;
 private:

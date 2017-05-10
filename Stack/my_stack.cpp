@@ -31,13 +31,14 @@ void My_Stack::push( int a )
 	}
 	else
 	{
-		max_elem *= 2;
 		int *new_data = new int[ max_elem ];
 		memcpy( new_data, data, max_elem * sizeof( int ) );
-		
 		delete [] data;
-		data = new_data;
-		new_data[ last++ ] = a;
+		
+		max_elem *= 2;
+		int *data = new int[ max_elem ];
+		memcpy( data, new_data, max_elem * sizeof( int ) );
+		data[ last++ ] = a;
 	}
 }
 void My_Stack::pop()
@@ -50,6 +51,10 @@ void My_Stack::pop()
 int My_Stack::size() 
 {
 	return --last;
+}
+int My_Stack::capacity()
+{
+	return max_elem;
 }
 bool My_Stack::empty() const
 {
